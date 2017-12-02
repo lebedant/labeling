@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Labels test | Digestive </title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <link href="../style.css" rel="stylesheet">
+    <script src="../main.js"></script>
+    <!-- Library -->
+    <script src="../transfer.js"></script>
+    <!-- Library -->
+
+    <script type='text/javascript'>
+      var sequence = [8, 7, 2, 3, 5, 0, 4, 10, 6, 11, 1, 9];
+      var model = "digestive";
+      var partToken = "labels-method-1";
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Labels test</h1>
+      <div class="flex row">
+        <div id="img-container">
+          <!-- Target image -->
+          <img id="target-img" src="image.png" />
+          <!-- Labels objects -->
+          <div class="label" style="top:420.39453125px; left:194.3125px;" onclick="labelClick(0)"></div>
+          <div class="label" style="top:446.97265625px; left:196.3125px;" onclick="labelClick(1)"></div>
+          <div class="label" style="top:541.47265625px; left:548.5625px;" onclick="labelClick(2)"></div>
+          <div class="label" style="top:206.29296875px; left:208.9375px;" onclick="labelClick(3)"></div>
+          <div class="label" style="top:662.55078125px; left:501.4375px;" onclick="labelClick(4)"></div>
+          <div class="label" style="top:46.82421875px; left:266.4375px;"  onclick="labelClick(5)"></div>
+          <div class="label" style="top:119.17578125px; left:522.5625px;" onclick="labelClick(6)"></div>
+          <div class="label" style="top:94.07421875px; left:249.5625px;"  onclick="labelClick(7)"></div>
+          <div class="label" style="top:379.05078125px; left:191.0625px;" onclick="labelClick(8)"></div>
+          <div class="label" style="top:259.44921875px; left:192.6875px;" onclick="labelClick(9)"></div>
+          <div class="label" style="top:312.60546875px; left:179.4375px;" onclick="labelClick(10)"></div>
+          <div class="label" style="top:404.15234375px; left:572.9375px;" onclick="labelClick(11)"></div>
+        </div>
+        <!-- BUTTONS -->
+        <div class="flex column">
+          <button id="start" onclick="startTest()">Start</button>
+          <button id="cannotDecide" onclick="labelClick(-1)" disabled="disabled">Can't decide</button>
+          <button id="noLabel" onclick="labelClick(-2)" disabled="disabled">No label</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

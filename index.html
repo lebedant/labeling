@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Labels test</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <!-- Library -->
+    <script src="transfer.js"></script>
+    <!-- Library -->
+    <link href="style.css" rel="stylesheet">
+    <script type='text/javascript'>
+      var partToken = "labels-info-part";
+    </script>
+  </head>
+
+  <body>
+    <div class="small-container">
+      <h1>Labeling user study</h1>
+      <p>
+        You will be presented with a labeled image. Please proceed as follows:
+        <ul>
+          <li>Examine the image and for each label try to determine to which part of the depicted object it belongs.</li>
+          <li>Then press <b>"Start test"</b> button and wait. One of the object parts will be highlighted in light green.</li>
+          <li>Click on the label that belong to the highlighted object part as quickly as possible, but at the same time try to
+          be sure that the label belongs to the highlighted object part. If you cannot decide which label belongs
+          to the highlighted object part press <b>"I cannot decide"</b> button. If you think that there is no label for
+          the highlighted object part press <b>"There is no label"</b> button.</li>
+          <li>Wait until another object part is highlighted. And continue as before.</li>
+          <li>The whole test will be repeated on four different labeled images.</li>
+        </ul>
+        Thank you for your cooperation!
+      </p>
+      <!-- PART 1 -->
+      <form id="info-form" method="post" class="box">
+        Your age: <br>
+        <input type="number" name="age"><br><br>
+        Your gender: <br>
+        <input type="radio" name="gender" value="male">Male<br>
+        <input type="radio" name="gender" value="female">Female<br><br>
+        <input type="submit" value="Join study">
+      </form>
+    </div>
+    <script>
+      $("#info-form").submit(function(e) {
+        var data = $('#info-form').serializeArray();
+
+        var defer = Transfer.registerParticipant();
+
+        defer.done(function() {
+          return Transfer.sendData(partToken, data)
+        }).done(function(){
+          e.preventDefault();
+          window.location.replace('digestive_m1/index.html');
+        });
+      });
+    </script>
+  </body>
+</html>

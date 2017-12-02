@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Labeling user study</title>
+    <script type='text/javascript'>
+      var sequence = [8, 7, 2, 3, 5, 0, 4, 10, 6, 11, 1, 9];
+      var model = "digestive";
+      var partToken = "labels-method-2";
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <link href="../style.css" rel="stylesheet">
+    <script src="../main.js"></script>
+    <!-- Library -->
+    <script src="../transfer.js"></script>
+    <!-- Library -->
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Labels test</h1>
+      <div class="flex row">
+        <div id="img-container">
+          <!-- Target image -->
+          <img id="target-img" src="image.png" />
+          <!-- Labels objects -->
+      		<div class="label" style="top:423.271484375px; left:192.67013549804688px;" onclick="labelClick(0)"></div>
+      		<div class="label" style="top:424.2816467285156px; left:569.67529296875px;" onclick="labelClick(1)"></div>
+      		<div class="label" style="top:539.4390258789062px; left:196.71072387695312px;" onclick="labelClick(2)"></div>
+      		<div class="label" style="top:146.48968505859375px; left:230.0457763671875px;" onclick="labelClick(3)"></div>
+      		<div class="label" style="top:524.2867431640625px; left:553.5128173828125px;" onclick="labelClick(4)"></div>
+      		<div class="label" style="top:43.45416259765625px; left:474.7209167480469px;" onclick="labelClick(5)"></div>
+      		<div class="label" style="top:93.9617919921875px;  left:248.228515625px;"  onclick="labelClick(7)"></div>
+      		<div class="label" style="top:109.11407470703125px; left:516.13720703125px;" onclick="labelClick(6)"></div>
+      		<div class="label" style="top:381.8552551269531px; left:190.64981079101562px;" onclick="labelClick(8)"></div>
+      		<div class="label" style="top:292.9618225097656px; left:585.8377075195312px;" onclick="labelClick(9)"></div>
+      		<div class="label" style="top:235.38311767578125px; left:187.72088623046875px;" onclick="labelClick(10)"></div>
+      		<div class="label" style="top:389.93646240234375px; left:575.7362060546875px;" onclick="labelClick(11)"></div>
+        </div>
+      <!-- BUTTONS -->
+        <div class="flex column">
+          <button id="start" onclick="startTest()">Start</button>
+          <button id="cannotDecide" onclick="labelClick(-1)" disabled="disabled">Can't decide</button>
+          <button id="noLabel" onclick="labelClick(-2)" disabled="disabled">No label</button>
+        </div>
+      </div>
+  </body>
+</html>
