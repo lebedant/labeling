@@ -2,7 +2,7 @@ var index = 0;
 var startTime;
 var model_sequence = ['digestive', 'drill', 'fork', 'head'];
 var method_sequence = ['m1', 'm2'];
-var timeout = 1500;
+var timeout = 1000;
 
 
 function changeImg() {
@@ -38,7 +38,6 @@ function labelClick(label_no) {
     // change img
     setTimeout(changeImg, timeout);
 }
-
 
 function startTest() {
     var counter = localStorage.getItem("counter");
