@@ -45,7 +45,7 @@ var Transfer = (function () {
         });
         return promise;
     };
-    // Transfer.host = 'https://experiments-tool.herokuapp.com';
-    Transfer.host = 'http://localhost:3030';
+    Transfer.host = 'https://experiments-tool.herokuapp.com';
+    // Transfer.host = 'http://localhost:3030';
     return Transfer;
 }());
