@@ -61,14 +61,26 @@ function endTest() {
 
     $("#img-container").remove();
 
-    document.write('Redirecting...');
+    var counter = Number(localStorage.getItem("counter"));
+    var model_index = counter%model_sequence.length;
 
-    setTimeout(function(){
+    if (model_index == 0) {
+        window.location.replace("../finish.html");
+    } else {
+        document.write('Redirecting...');
+        redirectToNextModel('../');
+    }
+}
+
+function redirectToNextModel(path) {
+    setTimeout(function() {
         var counter = Number(localStorage.getItem("counter"));
-        var model = model_sequence[counter%model_sequence.length];
-        var m_index = model == 0 ? (counter%method_sequence.length) + 1 : counter%method_sequence.length;
-        var method = method_sequence[m_index];
-        window.location.replace(`../${model}_${method}/index.html`);
+        var model_index = counter%model_sequence.length;
+        var model = model_sequence[model_index];
+        var method_index = model_index == 0 ? (counter%method_sequence.length) + 1 : counter%method_sequence.length;
+        var method = method_sequence[method_index];
+
+        window.location.replace(`${path}${model}_${method}/index.html`);
     }, timeout);
 }
 

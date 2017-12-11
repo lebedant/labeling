@@ -53,7 +53,8 @@
           return Transfer.sendData(partToken, data)
         }).done(function(){
           e.preventDefault();
-          window.location.replace('digestive_m1/index.html');
+          redirectToNextModel('./');
+          // window.location.replace('digestive_m1/index.html');
         });
       });
     </script>
