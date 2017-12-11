@@ -49,7 +49,7 @@
 
         Transfer.registerParticipant().done(function() {
           Transfer.sendData(partToken, data).done(function() {
-            // e.preventDefault();
+            e.preventDefault();
             redirectToNextModel('./');
           });
         });
