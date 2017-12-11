@@ -47,13 +47,11 @@
       $("#info-form").submit(function(e) {
         var data = $('#info-form').serializeArray();
 
-        var defer = Transfer.registerParticipant();
-
-        defer.done(function() {
-          return Transfer.sendData(partToken, data)
-        }).done(function() {
-          e.preventDefault();
-          redirectToNextModel('./');
+        Transfer.registerParticipant().done(function() {
+          Transfer.sendData(partToken, data).done(function() {
+            // e.preventDefault();
+            redirectToNextModel('./');
+          });
         });
       });
     </script>
