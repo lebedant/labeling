@@ -34,7 +34,7 @@
         Thank you for your cooperation!
       </p>
       <!-- PART 1 -->
-      <form id="info-form" method="post" class="box">
+      <form id="info-form" class="box">
         Your age: <br>
         <input type="number" name="age"><br><br>
         Your gender: <br>
@@ -51,10 +51,9 @@
 
         defer.done(function() {
           return Transfer.sendData(partToken, data)
-        }).done(function(){
+        }).done(function() {
           e.preventDefault();
           redirectToNextModel('./');
-          // window.location.replace('digestive_m1/index.html');
         });
       });
     </script>
