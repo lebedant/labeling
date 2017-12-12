@@ -46,10 +46,12 @@
     <script>
       $("#info-form").submit(function(e) {
         var data = $('#info-form').serializeArray();
+        var promise1 = Transfer.registerParticipant();
+        e.preventDefault();
+        promise1.done(function() {
+          var promise2 = Transfer.sendData(partToken, data);
 
-        Transfer.registerParticipant().done(function() {
-          Transfer.sendData(partToken, data).done(function() {
-            e.preventDefault();
+          promise2.done(function() {
             redirectToNextModel('./');
           });
         });
