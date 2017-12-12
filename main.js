@@ -62,7 +62,7 @@ function endTest() {
     $("#img-container").remove();
 
     var counter = Number(localStorage.getItem("counter"));
-    var model_index = counter%model_sequence.length;
+    var model_index = counter % model_sequence.length;
 
     if (model_index == 0) {
         window.location.replace("../finish.html");
@@ -75,9 +75,10 @@ function endTest() {
 function redirectToNextModel(path) {
     setTimeout(function() {
         var counter = Number(localStorage.getItem("counter"));
-        var model_index = counter%model_sequence.length;
+        var model_index = counter % model_sequence.length;
         var model = model_sequence[model_index];
-        var method_index = model_index == 0 ? (counter%method_sequence.length) + 1 : counter%method_sequence.length;
+        var adder = Math.ceil((counter+1)/model_sequence.length) % 2;
+        var method_index = (counter + adder + 1) % method_sequence.length;
         var method = method_sequence[method_index];
 
         window.location.replace(`${path}${model}_${method}/index.html`);
@@ -91,3 +92,4 @@ function timerStart() {
 function timerStop() {
     return window.performance.now() - startTime;
 }
+
