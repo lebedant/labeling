@@ -22,7 +22,7 @@ function labelClick(label_no) {
     var completionTime = timerStop();
     var error;
     if (label_no < 0) {
-        error = label_no;
+        error = Math.abs(label_no);
     } else {
         error = label_no == sequence[index - 1] ? 0 : 1;
     }
