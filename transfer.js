@@ -9,17 +9,16 @@ var Transfer = (function () {
         var promise = $.ajax({
             context: this,
             method: "POST",
-            url: Transfer.host + "/api/v1/register_participant.json",
+            url: Transfer.host + "/api/v1/participants.json",
             dataType: "json",
         });
         promise.done(function (response) {
             // save participant id
             localStorage.setItem("participantId", response.internal_id);
-            console.info("Participant ID: " + response.internal_id);
-            console.info('Successfull registration.');
+            console.info('Successful registration.');
         });
         promise.fail(function (xhr, status, error) {
-            console.error('Error registration:' + xhr.responseJSON.message);
+            console.error('Error of registration:' + xhr.responseJSON.message);
         });
         return promise;
     };
@@ -28,24 +27,22 @@ var Transfer = (function () {
         // ajax request
         var promise = $.ajax({
             method: "POST",
-            url: Transfer.host + "/api/v1/save_data.json",
+            url: Transfer.host + "/api/v1/experiments/parts/" + partToken + "/data.json",
             contentType: "application/json",
             data: JSON.stringify({
-                part_id: partToken,
                 variable_values: params,
                 internal_id: localStorage.getItem("participantId")
             }),
             dataType: "json"
         });
         promise.done(function (response) {
-            console.info('Successfull data transfer.');
+            console.info('Successful data transfer.');
         });
         promise.fail(function (xhr, status, error) {
-            console.error('Error send data: ' + error + " - " + xhr.responseJSON.message);
+            console.error('Error of data sending: ' + error + " - " + xhr.responseJSON.message);
         });
         return promise;
     };
     Transfer.host = 'https://experiments-tool.herokuapp.com';
-    // Transfer.host = 'http://localhost:3030';
     return Transfer;
 }());
